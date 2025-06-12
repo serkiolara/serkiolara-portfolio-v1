@@ -22,6 +22,10 @@ body {
 
 }
 
+html, body {
+  overflow-x: hidden;
+}
+
   /* 
     Header 
   */
@@ -143,6 +147,7 @@ body {
     white-space: nowrap;
     line-height: 1;
   }
+
 
   .home-content h3 span {
     display: inline-block;
@@ -376,9 +381,11 @@ body {
 
   .services-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, minmax(300px, 1fr));
     align-items: center;
     gap: 2.5rem;
+    padding: 0 15%;
+    justify-content: center;
   }
 
   .service-box {
@@ -442,16 +449,16 @@ body {
   }
 
   .project-card {
-    position: relative;       /* para que el absolute dentro funcione */
+    position: relative;     
 
     display: grid;
-    grid-template-rows: auto 1fr;    /* fila 1 = imagen, fila 2 = texto */
+    grid-template-rows: auto 1fr; 
     width: 100%;
     max-width: 400px;
     background-color: var(--bg-color);
     border: 0px solid var(--main-color);
     border-radius: 3rem;
-    overflow: hidden;                /* recorta la imagen y el contenido */
+    overflow: hidden;             
     cursor: pointer;
     box-shadow: 0 0 5px var(--main-color);
     transition: 0.3s ease-in-out;
@@ -472,7 +479,6 @@ body {
     z-index: 2;
   }
 
-  /* Cada icono pequeño */
   .project-card .tech-icons i {
     font-size: 3rem;
     color: var(--bg-color);
@@ -482,7 +488,6 @@ body {
     transition: transform 0.3s, background 0.3s, color 0.3s;
   }
 
-  /* Opcional: al hacer hover en la tarjeta, invertimos colores en los iconos */
   .project-card:hover .tech-icons i {
     background: var(--second-bg-color);
     color: var(--main-color);
@@ -493,10 +498,9 @@ body {
     width: 100%;
     height: auto;
     object-fit: cover;
-    border-radius: 3rem 3rem 0 0;     /* solo esquinas superiores redondeadas */
+    border-radius: 3rem 3rem 0 0;   
   }
 
-  /* Contenedor del texto, con padding */
   .card-content {
     padding: 2rem;
     display: flex;
@@ -528,6 +532,8 @@ body {
   .experience {
     background: var(--second-bg-color);
     color: var(--text-color);
+    padding: 10rem 5%;
+
   }
 
   .experience h2 {
@@ -537,7 +543,8 @@ body {
   }
 
   .experience .container {
-    padding: 0 2%;
+    max-width: 1200px;               
+    margin: 0 auto; 
   }
 
   .experience .row {
@@ -616,15 +623,6 @@ body {
     font-size: 1.6rem;
     line-height: 1.6;
     color: var(--text-color);
-  }
-
-  @media (max-width: 768px) {
-    .experience .row {
-      grid-template-columns: 1fr;
-    }
-    .experience .col + .col {
-      margin-top: 2rem;
-    }
   }
 
   /* 
@@ -753,6 +751,16 @@ body {
     text-align: center;
   }
 
+  .home-content h3 span {
+    display: block; 
+    width: auto;         
+    white-space: normal;    
+    border-right: none;    
+    animation: none !important;     
+    margin-top: 0.5rem;   
+  
+  }
+
   .home-img img {
     width: 60vw;
   }
@@ -795,7 +803,132 @@ body {
     font-size: 1.5rem;
   }
 
+  .services-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    padding: 0 5%;
+  }
+  .service-box {
+    height: auto;      
+    padding: 4rem 2rem;
+  }
+  .service-info h4 {
+    font-size: 3.5rem;
+    margin: 1.5rem 0;
+  }
+  .service-info p {
+    font-size: 1.3rem;
+  }
+  .service-info i {
+    font-size: 6rem;
+  }
+
+  .experience .row {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+    padding: 0 5%;
+  }
+  .experience .col + .col {
+    margin-top: 3rem;
+  }
+  .experience h2 {
+    font-size: 6rem;
+    margin-bottom: 2rem;
+  }
+  .experience .col .title h2 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  .projects-box {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    padding: 0 8%;
+  }
+  
+  .project-card {
+    max-width: 100%;     
+  }
+
   .contact form {
     flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects {
+    padding: 5rem 0;   
+  }
+
+  .projects-box {
+    grid-template-columns: 1fr;  
+    gap: 4rem;
+    padding: 0 5%;
+    justify-items: center;
+  }
+
+  .project-card {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .project-card .tech-icons {
+    top: 1rem;   
+    bottom: auto; 
+  }
+
+   .services-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 3%;
+  }
+  .service-box {
+    padding: 3rem 1.5rem;
+  }
+  .service-info h4 {
+    font-size: 3rem;
+  }
+  .service-info p {
+    font-size: 1.2rem;
+  }
+  .service-info i {
+    font-size: 5rem;
+  }
+
+  .experience .row {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 0 3%;
+  }
+  .experience h2 {
+    font-size: 5rem;
+    margin-bottom: 1.5rem;
+  }
+  .experience .col .title h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .experience .contents {
+    border-left-width: 0.4rem;
+    padding-left: 2rem;
+  }
+  .experience .box {
+    padding: 1.5rem;
+  }
+  .experience .box h4 {
+    font-size: 1.4rem;
+  }
+  .experience .box h3 {
+    font-size: 2rem;
+  }
+  .experience .box p {
+    font-size: 1.4rem;
+  }
+
+  .services-container {
+    grid-template-columns: 1fr;
+    padding: 0 5%;
+  }
+  .experience .row {
+    grid-template-columns: 1fr;
   }
 }
